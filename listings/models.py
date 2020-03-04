@@ -6,7 +6,6 @@ from django.urls import reverse, reverse_lazy
 
 
 class PropertyItem(models.Model):
-    '''Represents one section of the building code.'''
     title = models.CharField(max_length=60, help_text="Property title.")
     slug = models.CharField(max_length=60,
                             blank=True, editable=False,
@@ -44,4 +43,4 @@ class PropertyItem(models.Model):
     def get_absolute_url(self):
         '''Returns a fully qualified path for building code instance.'''
         path_components = {'slug': self.slug}
-        return reverse('codes:details', kwargs=path_components)
+        return reverse('listings:details', kwargs=path_components)
