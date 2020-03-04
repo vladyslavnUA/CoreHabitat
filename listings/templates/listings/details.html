@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="container mt-5">
+		<h1>{{propertyitem.title}}</h1>
+
+		<!-- Description Section -->
+		<h3>Description</h3>
+			<p>{{propertyitem.description}}</p>
+		{% if user.is_authenticated is True %}
+			<div class="row ml-5">
+				<a class="btn btn-primary mr-5" href="{% url 'listings:edit_propertyitem' propertyitem.slug %}">Update This Property</a>
+				<a class="btn btn-warning" href="{% url 'listings:remove_propertyitem' propertyitem.slug %}">Delete This Property</a>
+			</div>
+		{% endif %}
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+{% endblock %}
